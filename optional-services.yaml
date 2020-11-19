@@ -1,0 +1,17 @@
+version: '3'
+services:
+
+  backend:
+    restart: always
+    build:
+      context: ./
+      dockerfile: src/main/docker/Dockerfile.fast-jar
+    environment:
+      - quarkus.datasource.jdbc.url=jdbc:postgresql://postgres:5432/toDo
+      - quarkus.log.level=INFO
+      - demo.data.lazy=true
+      - demo.data=true
+    depends_on:
+      - postgres
+    ports:
+      - '8080:8080'

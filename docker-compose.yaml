@@ -1,0 +1,10 @@
+version: '3'
+services:
+  postgres:
+    restart: always
+    build:
+      context: ./docker/postgres
+    env_file:
+      - ./docker/postgres/database.env # configure postgres
+    ports:
+      - '5432:5432'
