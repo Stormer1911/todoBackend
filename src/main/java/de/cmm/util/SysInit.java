@@ -69,7 +69,6 @@ public class SysInit {
 
     public boolean initUser() {
         try (Jsonb jsonb = JsonbBuilder.create()) {
-            //add Users
             List<TodoModel> todoModels = jsonb.fromJson(getClass().getResourceAsStream("/TestData/todo.json"), new ArrayList<TodoModel>() {
             }.getClass().getGenericSuperclass());
             todoModels.forEach(todo -> {
